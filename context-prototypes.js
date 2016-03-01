@@ -137,7 +137,7 @@ var resultObject = {
 	}
 }
 
-var boundEmailGetter
+var boundEmailGetter = getEmail.bind(resultObject)
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
 
@@ -209,6 +209,10 @@ var record3 = {
 
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
+// Use the .call method to invoke .toggleStatus on each of the record objects.
+LoggingService.prototype.toggleStatus.call(record1)
+LoggingService.prototype.toggleStatus.call(record2)
+LoggingService.prototype.toggleStatus.call(record3)
 
 // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- //
 
