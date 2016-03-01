@@ -28,13 +28,24 @@
 // age by a year. 
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
+var Person = function(inputName) {
+  this.name = inputName
+  this.age = 0
+}
 
+Person.prototype.sayMyName = function() {
+  return this.name
+}
+
+Person.prototype.ageAYear = function() {
+  return this.age += 1
+}
 // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- //
 
 // ==== Validating =============================================== //
 
 var jim = new Person('james')
-console.log(jim)
+
 // the following assertion just checks that you've put sayMyName on the prototype,
 // instead of just putting it in the constructor. 
 console.assert(Person.prototype.sayMyName === jim.sayMyName)
@@ -51,9 +62,10 @@ console.assert(jim.age === 1)
 // store the bound function in a variable called ajaxAger. 
 
 var ajax = {name: 'francis', age: 35, hometown: 'poughkeepsie'}
-var ajaxAger
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
+
+var ajaxAger = Person.prototype.ageAYear.bind(ajax)
 
 // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- //
 
@@ -85,10 +97,8 @@ var mensShirtFabrics = {
 	length: 5
 }
 
-var yourMansWardrobe
-
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
-
+var yourMansWardrobe = Array.prototype.join.call(mensShirtFabrics, " ")
 // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- //
 
 // ==== Validating =============================================== //
